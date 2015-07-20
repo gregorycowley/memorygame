@@ -1,0 +1,155 @@
+/*------------------------------------*\
+    Generic Page Content
+\*------------------------------------*/
+.go_generic-content{
+    @include container;
+    background-color: $body-bg;
+
+
+    padding: 30px 15px;
+
+    @include bp($breakpoint-md) {
+        padding-right: 40px;
+    }
+    @include bp($breakpoint-lg) {
+        padding: 30px 40px;
+    }
+    .h1__title--marginless{
+        margin: 0;
+    }
+    .header{
+        .published-date{
+            display: block;
+            margin-bottom: 30px;
+        }
+        .featured-img{
+            margin-top: 45px;
+        }
+    }
+
+    // sidenav styles
+    &.go_content-with-sidenav{
+      padding:0;
+      position:relative;
+      @include bp($breakpoint-md) {
+        padding-top: 30px;
+      }
+    }
+    .sidenav__wrapper{
+      padding: 30px 60px;
+      margin-top: 45px;
+      position: relative;
+      
+      @include bp($breakpoint-lg) {
+        max-width: 290px;
+        position: absolute;
+        right:2em;
+        top:3em;
+      }
+
+      .qualifications & {
+        @include bp($breakpoint-md) {
+          position: absolute;
+          right: 0;
+        }
+        @include bp($breakpoint-lg) {
+          max-width: 290px;
+          right:2em;
+          top:3em;
+        }
+      }
+      
+      &.hidden-lg.hidden-sm
+      {
+        float:right;
+        margin:9em 2em 1em;
+        z-index:2;
+      }
+
+      .sidenav--puppet,
+      .left-hand,
+      .right-hand { position: absolute; }
+
+      .sidenav--puppet{
+        background-image: url("../../assets/img/frugal_friends/sidenav-puppet.png");
+        height: 194px;
+        top: -194px;
+        width: 190px;
+        left: 50%;
+        margin-left: -95px;
+      }
+      .left-hand{
+        background-image: url("../../assets/img/frugal_friends/left-hand.png");
+        height: 49px;
+        top: 10px;
+        left: -44px;
+        width: 60px;
+      }
+      .right-hand{
+        background-image: url("../../assets/img/frugal_friends/right-hand.png");
+        height: 49px;
+        top: 10px;
+        right: -41px;
+        width: 60px;
+      }
+    }
+
+    .sidenav__item{
+      margin-top: 10px;
+      a{
+        color: #e6e5e5;
+        text-decoration: none;
+        border-bottom: 2px solid #78af56;
+        font-size: $font--delta;
+      }
+
+      &.is-active{
+        &:before{
+          @include sprite-retina(white-pointer);
+          content:"";
+          display: inline-block;
+          float: left;
+          margin: 6px 0 0 -18px; 
+        }
+
+        a{
+          color: #fff;
+        }
+      }
+    }
+}
+
+.article{
+    @include container;
+    .main-content{ 
+      img{
+        display: block;
+        margin: 15px auto 50px auto;
+      }
+      img.alignleft
+      {
+        float:none;
+        margin: 20px auto;
+        @include bp($breakpoint-lg)
+        {
+          float:left;
+          margin:0 20px;
+        }
+      }
+      &.col-6-lg
+      {
+        margin-bottom:60px;
+        overflow:hidden;
+        @include bp($breakpoint-lg)
+        {
+          margin-bottom:0;
+        }
+      }
+    }
+
+    .doug-careers{
+        position: absolute;
+        bottom: -40px;
+        right: 50px;
+    }
+}

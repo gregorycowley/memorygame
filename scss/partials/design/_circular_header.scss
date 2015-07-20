@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    Circular Header
+\*------------------------------------*/
+.go_circular--header{
+    @include container;
+    padding: 15px 15px;
+    @include bp($breakpoint-lg) {
+        padding: 20px 40px;
+    }
+    background-color: #b71f36;
+
+    .go_circular--header__date{
+        margin-bottom: -10px;
+    }
+
+    .fb-share-btn{
+        margin-right: 25px;
+        position: relative;
+        bottom: 2px;
+    }
+    .white{
+        color: #fff;
+    }
+}

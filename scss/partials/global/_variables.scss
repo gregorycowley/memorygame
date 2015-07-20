@@ -1,0 +1,194 @@
+////////////////////////
+// Variables Partials
+//
+// All of your variables should go in this file.
+////////////////////////
+
+/*------------------------------------*\
+    $Colors
+\*------------------------------------*/
+
+$gray-darker:            #000000 !default; // black
+$wow-gray:               #262626 !default; // dark gray used on wow alerts page
+$gray:                   #A9A9A9 !default; // gray
+$gray-light:             #F5F2E5 !default; // darker cream
+$gray-lighter:           #F9F7EF !default; // lighter cream
+
+$white:                  #FFFFFF !default; // white
+
+$brand-primary:          #B71234 !default; // red
+$brand-success:          #5DA231 !default; // green
+$brand-info:             #F2AF00 !default; // yellow
+$brand-warning:          #6C3200 !default; // brown
+$brand-danger:           $brand-primary;   // red
+
+$body-bg:                $gray-lighter;    // lighter-tan
+$text-color:             $brand-warning;   // dark brown
+
+/*------------------------------------*\
+    $Breakpoint Settings
+\*------------------------------------*/
+
+$breakpoint-default-media: 'all';
+$breakpoint-default-feature: 'min-width';
+$breakpoint-default-pair: 'width';
+$breakpoint-to-ems: true; //false is default
+
+//Declare breakpoint values here
+$breakpoint-px-val--xs: 598px;
+$breakpoint-px-val--sm: 599px;
+$breakpoint-px-val--md: 600px;
+$breakpoint-px-val--lg: 960px;
+$breakpoint-px-val--xlg: 1240px;
+
+//Breakpoint mixin variables:
+$breakpoint-xs: max-width $breakpoint-px-val--xs;  //converted to ems automagically
+$breakpoint-sm: min-width $breakpoint-px-val--sm;  //converted to ems automagically
+$breakpoint-md: min-width $breakpoint-px-val--md; //converted to ems automagically
+$breakpoint-lg: min-width $breakpoint-px-val--lg; //converted to ems automagically
+$breakpoint-xlg: min-width $breakpoint-px-val--xlg; //converted to ems automagically
+
+$disable-responsive: false;
+
+/*------------------------------------*\
+    $Sprites
+\*------------------------------------*/
+
+$sprites: sprite-map("sprites/**/*.png", $layout: smart, $spacing: 10px); // import 1x sprites  
+$sprites2x: sprite-map("sprites-2x/**/*.png", $spacing: 10px); // import 2x sprites, $layout: smart messes up retina positioning;
+
+
+/*------------------------------------*\
+    $General Type
+\*------------------------------------*/
+
+$line-height-base: 1.4em;
+
+
+/*------------------------------------*\
+    $Fonts
+\*------------------------------------*/
+
+$serif-family:      "Bargain Best", Georgia, "Times New Roman", Times, serif !default;
+$san-serif-family:  "Whitney Medium", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$san-serif-italic-family:  "Whitney Medium Italic", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$san-serif-bold-family:  "Whitney Bold", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+
+$font--milli:   10px;
+$font--zeta:    12px;
+$font--epsilon: 14px;
+$font--delta:   16px;
+$font--gamma:   18px;
+$font--beta:    22px;
+$font--alpha:   23px;
+$font--kilo:    30px;
+$font--mega:    36px;
+$font--giga:    48px;
+$font--tera:    54px; 
+$font--ultra:   60px;
+
+$font-size-base: $font--delta;
+
+
+/*------------------------------------*\
+    $Grid/Structure values
+\*------------------------------------*/
+
+$total-columns-sm:  4;
+// $column-width-sm:   stripAndPxToEms(55px);
+$gutter-width-sm:   stripAndPxToEms(20px); //space between columns
+$grid-padding-sm:   stripAndPxToEms(0px);
+
+$total-columns-md:  8;
+// $column-width-md:   stripAndPxToEms(61px);
+$gutter-width-md:   stripAndPxToEms(16px); //space between columns
+$grid-padding-md:   stripAndPxToEms(0px);
+
+$total-columns-lg:  12;
+// $column-width-lg:   stripAndPxToEms(67px);
+$gutter-width-lg:   stripAndPxToEms(20px); //space between columns
+$grid-padding-lg:   stripAndPxToEms(0px);
+
+
+/*------------------------------------*\
+    $z-index
+\*------------------------------------*/
+
+$zindex-navbar:            1000 !default;
+$zindex-dropdown:          1000 !default;
+$zindex-popover:           1060 !default;
+$zindex-tooltip:           1070 !default;
+$zindex-navbar-fixed:      1030 !default;
+$zindex-modal-background:  1040 !default;
+$zindex-modal:             1050 !default;
+
+
+/*------------------------------------*\
+    $Padding Sizes
+\*------------------------------------*/
+
+$padding-base-vertical: 13px;
+$padding-base-horizontal: 11px;
+
+$padding-input-vertical: 2px;
+$padding-input-horizontal: 10px;
+
+/*------------------------------------*\
+    $CTA Padding Sizes
+\*------------------------------------*/
+
+$padding-cta-vertical: 5px;
+$padding-cta-horizontal: 10px;
+
+
+/*------------------------------------*\
+    $Border Values
+\*------------------------------------*/
+
+$border-radius-base: 0px;
+$border-width: 2px;
+
+
+/*------------------------------------*\
+    $Button Values
+\*------------------------------------*/
+
+$btn-font-weight:                bold !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+
+/*------------------------------------*\
+    $General Footer Variables
+\*------------------------------------*/
+
+$footer-height: 723px;
+
+
+/*------------------------------------*\
+    $Sticky Footer
+\*------------------------------------*/
+
+$sticky-footer-enabled: false; 
+
+/*------------------------------------*\
+    $Nav menu Icons.
+\*------------------------------------*/
+
+$menu-categories: "nav-home", "nav-location", "nav-gift", "nav-faq", "nav-email";
+
+/*------------------------------------*\
+    $Footer Social Icons.
+\*------------------------------------*/
+
+$social-media: "footer-fb", "footer-pn", "footer-instagram", "footer-twitter", "footer-youtube";
+$corp-icons: "footer-location", "footer-tel";
+
+/*------------------------------------*\
+    $Fixed Nev Icons.
+\*------------------------------------*/
+
+$fixed-nav-icons: "fixed-nav-home";

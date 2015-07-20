@@ -1,0 +1,289 @@
+.wow-alerts__wrapper
+{
+  @include container;
+}
+
+.wow-alerts__header
+{
+  @extend .go_circular--header;
+  background-color: $brand-info;
+  @include bp($breakpoint-md)
+  {
+    display:table;
+    width:100%;
+  }
+
+  color: $brand-warning;
+  padding: 20px 40px 15px;
+}
+
+.wow-alerts__badge--wrapper
+{
+  text-align:center;
+}
+
+.wow-alerts__badge--wrapper--inner
+{
+  margin-bottom:0;
+}
+
+.wow-alerts__badge
+{
+  width: 153px;
+  height: 45px;
+  background: url('../img/hero/wow-header.png') no-repeat;
+  display:inline-block;
+}
+
+.wow-alerts__header--deals,
+.wow-alerts__date--wrapper{
+  font-family:$serif-family;
+  line-height: 1.2em;
+  @include font-size($font--mega);
+  @include bp($breakpoint-md){
+    @include font-size($font--giga);
+  }
+}
+.wow-alerts__date
+{
+  text-align: right;
+  font-family:$san-serif-family;
+  @include font-size($font--mega);
+  @include bp($breakpoint-md){
+    @include font-size($font--giga);
+  }
+}
+
+.wow-alerts__header--row{
+  text-align: center;
+  @include bp($breakpoint-md)
+  {
+    display:table-row;
+  }
+}
+
+.wow-alerts__header--cell
+{
+  @include bp($breakpoint-md)
+  {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 33%;
+  }
+  
+  
+  h1,h3
+  {
+    text-align:center;
+  
+    @include bp($breakpoint-md)
+    {
+      text-align:left;
+      display:inline;
+    }
+  }
+}
+
+.wow-alerts__oops
+{
+  @include container;
+  padding:3em;
+  background-color: #f9f7ef;
+}
+
+.wow-alerts__early
+{
+  @include container;
+  @extend .background-red;
+  padding:2em;
+  color:white;
+  p
+  {
+    margin:0;
+  }
+}
+
+.wow-alerts__store--wrapper{
+  @include container;
+  background: #f9f7ef;
+  padding: 30px 15px;
+  @include bp($breakpoint-md){
+    padding: 30px 40px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wow-alerts__product--wrapper
+{
+  padding: 30px 15px;
+  width: 100%;
+  @include bp($breakpoint-md){
+    padding: 30px 40px;
+  }
+}
+
+.wow-alerts__store
+{
+  .wow-alerts__store--header {
+    font-family: $san-serif-bold-family;
+    font-size: 30px;
+    color: $wow-gray;
+  }
+  .wow-alerts__store--phone{
+    display: none;
+    @include bp($breakpoint-lg){
+      display: block;
+    }
+  }
+  .wow-alerts__store--address,
+  .wow-alerts__store--phone{
+    position: relative;
+    color: $wow-gray;
+    font-family: $san-serif-family;
+    font-size: $font--alpha;
+    line-height: 1.2em;
+    text-align: left;
+  }
+
+}
+
+.wow-alerts__store--link{
+  text-align: right;
+}
+
+.wow-alerts__store--phone--wrapper{
+  @include container;
+  display: inline-block;
+  text-align: left;
+  justify-content: initial;
+  padding: 30px 15px;
+  @include bp($breakpoint-md){
+    padding: 30px 40px;
+  }
+  border-top: 1px solid #f2eed9;
+  @include bp($breakpoint-md){
+    display: none;
+  }
+  .wow-alerts__store--phone{
+    color: $wow-gray;
+    font-family: $san-serif-family;
+    font-size: $font--alpha;
+    line-height: 1.2em;
+  }
+}
+
+.wow-alerts__store--pin{
+  align-self: flex-start;
+}
+
+%wow-alerts__product--text{
+  display: block;
+  color: $wow-gray;
+  line-height: 1.2em;
+}
+
+.wow-alerts__product--wrapper
+{
+  background: #f2eed9;
+  overflow: hidden;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 92%;
+    background: url('../img/wow-product-border.png') repeat-x 0 0;
+    position: absolute;
+    top: 0;
+  }
+  &.first:before
+  {
+    display:none;
+  }
+  
+
+  .wow-alerts__product--description-left{
+    margin:0;
+    .wow-alerts__product--image{
+      border: 4px solid #fff;
+      margin-bottom: 10px;
+    }
+    .wow-alerts__product--inventory
+    {
+      color: #333;
+      font-family: $san-serif-family;
+      font-size: 20px;
+      margin: 4px 0 2px;
+      line-height:1em;
+
+      strong
+      {
+        font-family: $san-serif-bold-family;
+        font-style: italic;
+        padding-top:.3em;
+      }
+    }
+  }
+  
+  .wow-alerts__product--description-center{
+    color: $wow-gray;
+    .wow-alerts__product--name{
+      @extend %wow-alerts__product--text;
+      font-family: $san-serif-bold-family;
+      font-size: $font--alpha;
+      @include bp($breakpoint-md){
+        font-size: $font--kilo;
+      }
+    }
+    .wow-alerts__product--size{
+      @extend %wow-alerts__product--text;
+      font-size: $font--beta;
+      @include bp($breakpoint-md){
+        font-size: $font--alpha;
+      }
+    }
+    .wow-alerts__product--price{
+      @extend %wow-alerts__product--text;
+      font-family: $san-serif-bold-family;
+      font-size: $font--giga;
+      line-height: 1.3em;
+      @include bp($breakpoint-md){
+        font-size: $font--ultra;
+      }
+    }
+    .wow-alerts__product--savings{
+      font-family: $san-serif-bold-family;
+      font-size: $font--alpha;
+      @include bp($breakpoint-md){
+        font-size: $font--kilo;
+      }
+    }
+    .wow-alerts__product--discount{
+      font-family: $san-serif-bold-family;
+      font-size: $font--alpha;
+      @include bp($breakpoint-md){
+        font-size: $font--kilo;
+      }
+    }
+    .wow-alerts__product--savings{
+      font-family: $san-serif-bold-family;
+      font-size: $font--alpha;
+      font-style: italic;
+      @include bp($breakpoint-md){
+        font-size: $font--kilo;
+      }
+      .percent{
+        font-family: $san-serif-bold-family;
+        font-size: $font--alpha;
+        font-style: italic;
+        @include bp($breakpoint-md){
+          font-size: $font--kilo;
+        }
+        
+      }
+    }
+  }
+}

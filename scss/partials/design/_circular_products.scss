@@ -1,0 +1,158 @@
+/*------------------------------------*\
+    Circular Products
+\*------------------------------------*/
+.go_circular_products{
+    @include container;
+    background-color: $gray-light;
+    padding: 15px;
+    background-image: url("../../assets/img/backgrounds/circular-bg.min.png");
+    background-position:center;
+    @include bp($breakpoint-lg){
+        padding: 40px;
+    }
+    .go_circular-product{
+        margin-bottom: 30px;
+        @include isolate-grid(4,4);
+        @include bp($breakpoint-md){
+            @include isolate-grid(4,8);
+        }
+        @include bp($breakpoint-lg){
+            @include isolate-grid(4,12);
+        }
+    }
+
+    .circular-product--product{
+        position: relative;
+        margin-bottom: 18px;
+
+        .hover-item{
+            display: none;
+            position: absolute;
+            height: 100%;
+            top:0; right:0; left:0;
+            background-color: rgba($brand-primary, .7);
+            color:#fff;
+            border: 8px solid $brand-primary;
+            text-align: center;
+            cursor: pointer;
+            font-size: 30px;
+
+            padding:28% 0;
+
+            @include bp($breakpoint-md){
+                padding:29% 0;
+            }
+            
+            &.is-selected{
+                background-color: rgba(#a9a9a9, .7);
+                border-color: #a9a9a9;
+            }
+        }
+
+        &:hover{
+            .hover-item{display: block;}
+        }
+
+        .circular-product__off{
+            position: absolute;
+            bottom: 15%;
+            left: 0;
+            width: 180px;
+            -webkit-filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+            &.right-side{
+                @include wow-label(0deg, -5deg, left); //usage: deg1, deg2 , side of where label starts.
+                color: $brand-primary;
+                display: inline-block;
+                text-align: center;
+                font-family: $san-serif-bold-family;
+                // @include wow-buyOneGetOne();
+            }
+        }
+    }
+
+    .circular-product--product,
+    .circular__item-toggle,
+    .circular__social-link,
+    .circular-product__body,
+    .circular-product__price,
+    .circular-saved-on-item{margin-bottom: 10px;}
+
+
+    .circular-product__img{
+        border: 8px solid #fff;
+        width: 100%;
+    }
+
+    .circular__social-link{
+        height: 25px;
+    }
+    // .circular__item-toggle{}
+    .circular-product__name{
+        @extend %headline-wisywig--small;
+        font-family: $san-serif-bold-family;
+        line-height: 1em;
+        margin-bottom: 5px;
+    }
+
+    .circular-product__body{
+        display: block;
+    }
+
+    .circular-product__price{
+        position: relative;
+        &.price-oval{
+            display: inline-block;
+            text-align: center;
+            padding: 24px 0;
+            width: 162px;
+            height: 76px;
+            background: #ed1c24;
+            -moz-border-radius: 100px / 50px;
+            -webkit-border-radius: 100px / 50px;
+            border-radius: 100px / 50px;
+            border:3px solid #fff568;
+
+            margin-bottom: 63px;
+
+            .price{
+                font-family: $san-serif-bold-family;
+                font-size: 40px;
+                color:white;
+                @include text-shadow(#000000 2px 3px 3px);
+            }
+        }
+
+        &.price-label{
+            .price{
+                font-family: $san-serif-bold-family;
+                color:black;
+                font-size: 50px;
+
+                display: inline-block;
+                padding: 11px 0 28px 0;
+
+                @include bp($breakpoint-lg){
+                    font-size: $font--tera;
+                }
+            }
+        }
+    }
+    .circular-saved-on-item{
+        font-size: $font--gamma;
+        font-family: $san-serif-bold-family;
+        color: $brand-primary;
+        
+        &.oval{
+            font-family: $san-serif-bold-family;
+            font-size: 1.2rem;
+            position: absolute;
+            top:68px; left:0; right:0;
+
+            padding:5px;
+            margin-bottom: 20px;
+
+            background-color: #FFF;
+            border:2px solid #d7cc01;
+        }
+    }
+}

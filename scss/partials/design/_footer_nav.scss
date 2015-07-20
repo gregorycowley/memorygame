@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    Footer nav
+\*------------------------------------*/
+.go_footer-nav{ 
+    @include container;
+    background-color: $brand-primary;
+    padding: 11px 20px;
+    z-index: 2;
+
+    nav{
+        text-align: left;
+        @include bp($breakpoint-md){
+            text-align: center;
+        }
+    }
+
+        
+        a{
+            @extend %nav__footer-heavy;
+            color: #fff;
+            text-decoration: none;
+            width: 100%;
+            display: inline-block;
+            border-top:1px solid #c5415d;
+            padding: 10px 0px;
+
+            &:first-child{border:none;}
+
+            @include after_icons(white-pointer, 5px 0 0 0);
+
+            @include bp($breakpoint-md){
+                width: auto;
+                border:none;
+                padding: 10px 10px;
+                &:after{
+                    display: none;
+                }
+            }
+        }
+}

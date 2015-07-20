@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    $Fonts
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'Bargain Best';
+  src: url('../fonts/BargainBest.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/BargainBest.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/BargainBest.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/BargainBest.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/BargainBest.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Whitney Medium';
+  src: url('../fonts/WhitneyMedium.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/WhitneyMedium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/WhitneyMedium.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/WhitneyMedium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/WhitneyMedium.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Whitney Medium Italic';
+  src: url('../fonts/WhitneyMediumItalic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/WhitneyMediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/WhitneyMediumItalic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/WhitneyMediumItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/WhitneyMediumItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Whitney Bold';
+  src: url('../fonts/WhitneyBold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/WhitneyBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/WhitneyBold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/WhitneyBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/WhitneyBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+// used for the flapper "shoppers have saved" section
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:300);

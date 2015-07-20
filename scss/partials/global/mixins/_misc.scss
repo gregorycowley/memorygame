@@ -1,0 +1,446 @@
+////////////////////////
+// Mixins Partials
+//
+// All of your mixins should go in this file.
+////////////////////////
+
+/*------------------------------------*\
+    $Px to Rems
+\*------------------------------------*/
+   
+// Example:
+//
+// Default:
+// @include font-size(18px);
+//
+// or if you need !important:
+// @include font-size(18px, !important);
+//
+// Will turn px values into rems, with px fallback for older browsers
+
+@mixin font-size( $px-size, $important: null ) {
+  $base-font-multiplier: 1;
+  $stripped: $px-size / ($px-size * 0 + 1); // strip 'px'
+  @if $important { font-size: $stripped * $base-font-multiplier * 1px $important; font-size: $stripped / 16 * 1rem $important; }
+  @else { font-size: $stripped * $base-font-multiplier * 1px; font-size: $stripped / 16 * 1rem; }
+}
+
+
+/*------------------------------------*\
+    $Retina / 2x Images
+\*------------------------------------*/
+
+// Be sure to add .ir class to tag being replaced -- see helper-classes.scss
+// This is a deprecated mixin, replaced by global/_retina-sprites.scss, but it's a dependable backup if need-be
+@mixin image-2x($image, $image2x, $width, $height) {
+  background:image-url($image) no-repeat;
+  width: $width;
+  height: $height;
+  display: block;
+  text-indent: -9999px;
+  @media (min--moz-device-pixel-ratio: 1.25),
+         (-o-min-device-pixel-ratio: 1.25/1),
+         (-webkit-min-device-pixel-ratio: 1.25),
+         (min-device-pixel-ratio: 1.25),
+         (min-resolution: 200dpi),
+         (min-resolution: 1.25dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image:image-url($image2x);
+    background-size: $width $height;
+  }
+}
+
+// For background images without text replacement, etc
+@mixin image-2x-bg($image, $image2x, $width, $height) {
+  background:image-url($image) no-repeat;
+  @media (min--moz-device-pixel-ratio: 1.25),
+         (-o-min-device-pixel-ratio: 1.25/1),
+         (-webkit-min-device-pixel-ratio: 1.25),
+         (min-device-pixel-ratio: 1.25),
+         (min-resolution: 200dpi),
+         (min-resolution: 1.25dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image:image-url($image2x);
+    background-size: $width $height;
+  }
+}
+
+/*------------------------------------*\
+    $Opacity
+\*------------------------------------*/
+////////////////////////
+//
+//  Usage:
+//
+//    .article-heading {
+//      @include opacity(0.8);
+//    }
+//
+////////////////////////
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/*------------------------------------*\
+    $Text Overflow
+\*------------------------------------*/
+////////////////////////
+//
+//  Usage:
+//  An easy way to truncate text with an ellipsis.
+//  Requires the element to be block or inline-block.
+//
+//    .text-truncate {
+//      @include text-truncate;
+//     }
+//
+////////////////////////
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*------------------------------------*\
+    $Margin for Mobile
+\*------------------------------------*/
+
+@mixin reset-margins{
+  margin-left: -$grid-padding;
+  margin-right: -$grid-padding;
+  padding: 0 $grid-padding;
+}
+
+
+/*------------------------------------*\
+    $Visually Hidden
+\*------------------------------------*/
+////////////////////////
+//
+//  Sass can not extend classes /
+//  outer selectors from within @media breakpoints
+//  so we duplicate the class as a mixin
+//
+////////////////////////
+
+@mixin visuallyhidden{
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*------------------------------------*\
+    $Vertical-align Anything
+\*------------------------------------*/
+////////////////////////
+//
+// Also an extendable class (%vertical-align) --
+// try and use instead to reduce code bloat
+//
+// Mixin usage:
+//
+// .element{
+//   @include vertical-align;
+// }
+//
+// http://goo.gl/2MJm56
+//
+////////////////////////
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:focus:hover,
+  .open > &.dropdown-toggle {
+    color: lighten($color, 10%);
+    @if ($background == "transparent"){
+      background-color: $background;
+    }
+    @else{
+      background-color: lighten($background, 10%);
+    }
+    @if ($border == "transparent"){
+      border-color: $border;
+    }
+    @else{
+      border-color: lighten($border, 12%);
+    }
+  }
+  &:focus
+  {
+    color:$color;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      @if ($background == "transparent"){
+        background-color: $background;
+      }
+      @else{
+        background-color: darken($background, 10%);
+      }
+      @if ($border == "transparent"){
+        border-color: $border;
+      }
+      @else{
+        border-color: darken($border, 12%);
+      }
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+// caret for buttons
+@mixin caret($color, $size, $direction, $enclose: false) { // #fff, 6px, left
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    @if $enclose{
+      background-color: invert($color);
+      padding: $size;
+    }
+    @if $direction == 'up'{
+      border-right: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+    }
+    @else if $direction == 'right'{
+      border-top: $size solid transparent;
+      border-left: $size solid $color;
+      border-bottom: $size solid transparent;
+    }
+    @else if $direction == 'down'{
+      border-top: $size solid transparent;
+      border-right: $size solid transparent;
+      border-left: $size solid $color;
+    }
+    @else if $direction == 'left'{
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right: $size solid $color;
+    }
+}
+
+// positioning pseudo-sprites ":after". Applied to all standart buttons.
+@mixin after_icons($sprite_name, $after_margin: 0 0 0 12px) { 
+  &:after{
+    content:"";
+    display: inline-block;
+    @include sprite-retina($sprite_name);
+
+    float: right;
+    margin: $after_margin; 
+  }
+}
+
+// positioning pseudo-sprites ":before" || ":before"&&":after"
+@mixin pseudo_icons($icons, $after_sprite:false, $before_margin:false, $after:true, $before:false, $after_margin: 0 0 0 20px) { 
+  //if :after icons needed.
+  @if $after == true{
+    &:after{
+      content:"";
+      display: inline-block;
+      @include sprite-retina($after_sprite);
+
+      float: right;
+      margin: $after_margin; 
+    }
+  }
+
+  //if :before icons needed.
+  @if $before == true{
+    @each $icon in $icons{
+      &.icon-#{$icon}{
+        &:before{
+          content:"";
+          display: inline-block;
+          @include sprite-retina(#{$icon});
+
+          float: left;
+          margin: $before_margin; 
+        }
+      }
+    }
+  }
+}
+
+/*------------------------------------*\
+    $Circular WOW label
+\*------------------------------------*/
+@mixin wow-label($deg1, $deg2, $direction){ //eg: 0deg, -5deg, left/right
+  $leftOrRight:"";
+  @if ($direction == left){
+    $leftOrRight : right;
+  }
+  @else{
+    $leftOrRight : "left";
+  }
+  #{$direction}: 0; //right:0
+  background-color: #FFF;
+  width: 54%;
+  @include bp($breakpoint-md){
+    width: 46%;
+  }
+  @include bp($breakpoint-lg){
+    width: 41%;
+  }
+  border: 1px solid #d7cc01;
+  @include skew($deg1,$deg2);
+
+  padding: 6px;
+  &:after,
+  &:before{
+      content:"";
+      @include skew(deg1,deg2);
+      position: absolute;
+      #{$leftOrRight}: -18px;
+      bottom: -1px;
+
+      height: 0;
+      border-top: 20px solid transparent;
+      border-#{$direction}: 18px solid #fff;
+      border-bottom: 26px solid transparent;
+  }
+
+  &:before{
+      content:"";
+      @include skew(deg1,deg2);
+      position: absolute;
+      #{$leftOrRight}: -19px;
+      bottom: -1px;
+
+      height: 0;
+      border-top: 20px solid transparent;
+      border-#{$direction}: 18px solid #d7cc01;
+      border-bottom: 26px solid transparent;
+  }
+}
+
+/*------------------------------------*\
+    $Circular Buy 1 get 1 label
+\*------------------------------------*/
+@mixin wow-buyOneGetOne() {
+  height: 0;
+  width: 180px;
+  border-bottom: 50px solid #fff000;
+  border-right: 21px solid transparent;
+  padding-right: 20px;
+}
+
+// User select
+// For selecting text on the page
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select; // IE10+
+          user-select: $select;
+}
+
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+// Responsive utilities
+
+//
+// More easily include all the states for responsive-utilities.less.
+// [converter] $parent hack
+@mixin responsive-visibility($parent) {
+  #{$parent} {
+    display: block !important;
+  }
+  table#{$parent}  { display: table; }
+  tr#{$parent}     { display: table-row !important; }
+  th#{$parent},
+  td#{$parent}     { display: table-cell !important; }
+}
+
+// [converter] $parent hack
+@mixin responsive-invisibility($parent) {
+  #{$parent} {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT MIXINS
+   ========================================================================== */
+
+@mixin bp($media) {
+  @if ($disable-responsive == false) {
+
+    @include breakpoint($media) 
+    {
+      @content;
+    }
+
+  } @else if ($disable-responsive == true) {
+
+    @if (($media == $breakpoint-md) or ($media == $breakpoint-lg)) {
+      @content;
+    }
+
+  }
+}

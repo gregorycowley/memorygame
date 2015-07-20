@@ -1,0 +1,353 @@
+.timeline__wrapper
+{
+  @include container;
+  @include clearfix;
+  padding:2em 0;
+  background:$body-bg;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center center;
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+
+.cd-container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 100%; // breakpoints inside partials > _layout.scss
+  margin: 0 auto;
+
+  &::after { /* clearfix */
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+#cd-timeline {
+  position: relative;
+  margin: {
+    top: 2em;
+    bottom: 2em;
+  }
+
+  &:before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 35px;
+    height: 100%;
+    width: 2px;
+    background: darken($brand-info, 5%);
+  }
+
+  @include bp($breakpoint-lg) {
+    margin: {
+      top: 3em;
+      bottom: 3em;
+    }
+
+    &:before {
+      left: 50%;
+      margin-left: -2px;
+    }
+  }
+}
+
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0;
+  overflow: hidden;
+  padding: 2px;
+  z-index:3;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include bp($breakpoint-lg) {
+    margin: 4em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  
+  &.money
+  {
+    @include sprite-retina(timeline-money);
+  }
+  &.people
+  {
+    @include sprite-retina(timeline-people);
+  }
+  &.store
+  {
+    @include sprite-retina(timeline-store);
+  }
+  &.cart
+  {
+    @include sprite-retina(timeline-cart);
+  }
+  &.go
+  {
+    @include sprite-retina(timeline-GO);
+  }
+
+  @include bp($breakpoint-lg) {
+    left: 50%;
+    margin-left: -35px;
+  }
+}
+
+.cd-timeline-content {
+  position: relative;
+  margin-left: 110px;
+  background: white;
+  padding: 1em;
+  @include box-shadow(0 0 2px 1px rgba(0,0,0,.35));
+  @include clearfix;
+  border-radius:5px;
+  overflow:visible;
+
+  h2 {
+    color: $brand-warning;
+    font-family:$san-serif-family;
+    font-size:$font--kilo;
+    margin-bottom:0;
+  }
+
+  p {
+    margin: 1em 0;
+    line-height: 1.6;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    height: 0;
+    width: 0;
+    right: 100%;
+    border: 11px solid transparent;
+    border-right: 23px solid rgba(0,0,0,.35);
+  }
+
+  @include bp($breakpoint-lg) {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 43%;
+
+    &:before {
+      left: 100%;
+      right: 100%;
+      border-left: 23px solid rgba(0,0,0,.35);
+      border-right:11px solid transparent;
+    }
+
+    .cd-timeline-block:nth-child(even) & {
+      float: right;
+
+      &:before {
+        top: 24px;
+        left: auto;
+        border-right: 23px solid rgba(0,0,0,.35);
+        border-left: transparent;
+      }
+
+    }
+
+  }
+}
+
+.cd-timeline-content--inner
+{
+  overflow:hidden;
+  padding:2px;
+}
+
+.timeline__image-wrapper
+{
+  position:relative;
+  border:1px solid $gray;
+  @include bp($breakpoint-md)
+  {
+    float:right;
+    width:30%;
+    margin-right:5%;
+    padding: 5px 0;
+  }
+  @include bp($breakpoint-lg)
+  {
+    width:45%;
+  }
+  img
+  {
+    @include opacity(0);
+    width:100%;
+    height:auto;
+  }
+}
+
+.timeline__image-cover
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 10px;
+  @include background-size(cover);
+}
+
+.timeline__corner
+{
+  height: 9px;
+  width: 9px;
+  background: transparent;
+  border: 9px solid black;
+  position: absolute;
+  box-sizing: content-box;
+  &.timeline__corner--tl
+  {
+    top:-2px;
+    left:-2px;
+    border-bottom-color:transparent;
+    border-right-color:transparent;
+  }
+  &.timeline__corner--tr
+  {
+    top:-2px;
+    right:-2px;
+    border-bottom-color:transparent;
+    border-left-color:transparent;
+  }
+  &.timeline__corner--bl
+  {
+    bottom:-2px;
+    left:-2px;
+    border-top-color:transparent;
+    border-right-color:transparent;
+  }
+  &.timeline__corner--br
+  {
+    bottom:-2px;
+    right:-2px;
+    border-top-color:transparent;
+    border-left-color:transparent;
+  }
+}
+
+.timeline__text-wrapper
+{
+  &.has-image
+  {
+    @include bp($breakpoint-md)
+    {
+      float:right;
+      width:65%;
+    }
+    @include bp($breakpoint-lg)
+    {
+      width:50%;
+    }
+  }
+}
+
+.timeline__balloon
+{
+  background-image: url("../../assets/img/confetti-balloon.png");
+  width:161px;
+  height:462px;
+  position:absolute;
+  z-index:2;
+  display:none;
+  @include bp($breakpoint-md)
+  {
+    display:block;
+  }
+  &.balloon--0
+  {
+    top:-1%;
+    right:15%;
+  }
+  &.balloon--1
+  {
+    top:10%;
+    left:-5%;
+  }
+  &.balloon--2
+  {
+    top:28%;
+    right:5%;
+  }
+  &.balloon--3
+  {
+    top: 45%;
+    left: 30%;
+  }
+  &.balloon--4
+  {
+    top: 65%;
+    left: 60%;
+  }
+  &.balloon--5
+  {
+    bottom:15%;
+    left:10%;
+  }
+}
+
+.cd-timeline-content-arrow
+{
+  position: absolute;
+  top: 25px;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-right: 21px solid white;
+  right: 100%;
+  
+  @include bp($breakpoint-lg)
+  {
+    border-left: 21px solid white;
+    border-right:10px solid transparent;
+    left: 100%;
+    
+    .cd-timeline-block:nth-child(even) &
+    {
+      left: initial;
+      right: 100%;
+      left:auto;
+      border-left: 10px solid transparent;
+      border-right: 21px solid white;
+    }
+  }
+}
+
+.qtip-content .timeline__image-wrapper
+{
+  width:100%;
+  float:none;
+}

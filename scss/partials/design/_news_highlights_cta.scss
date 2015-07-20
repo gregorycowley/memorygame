@@ -1,0 +1,78 @@
+/*------------------------------------*\
+    News highlight CTA
+\*------------------------------------*/
+.outer-wrapper{
+  position: relative;
+  display: inline-block;
+  // margin-top: -100%;
+  // padding-top: 100%;
+  margin-bottom: -6px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.go_news-highlight{
+    @include container;
+    background-color: $body-bg;
+    padding: 35px 15px;
+    color:#333333;
+    position: relative;
+
+    @include bp($breakpoint-lg) {
+        padding: 40px;
+    }
+
+    h3{
+      color:$brand-primary;
+      margin-bottom: 10px;
+    }
+
+    p{margin-bottom: 20px;}
+
+    .news__thumb-img{
+      margin: 25px 0;
+
+      @include border-radius(5px);
+    }
+
+    .btn-link{
+      padding-left: 0;
+    }
+
+    .btn-default{
+      width: 100%;
+      text-align:left;
+    }
+
+    .news--date{
+      font-size: $font--zeta;
+    }
+}
+
+.img-bleed{
+  width: 150px;
+
+  position: absolute;
+  bottom: 0px;
+
+  z-index: 20;
+
+  @include bp($breakpoint-md){
+    height: 100%;
+    left: 81.1%;
+
+    @include background-size(cover);
+    background-position-x: 20%;
+  }
+
+  @include bp($breakpoint-lg){
+    height: 315px;
+    left: 50.1%;
+
+    margin-left: 33%;
+  }
+
+  @include bp($breakpoint-xlg){
+    margin-left: 404px;
+  }
+}

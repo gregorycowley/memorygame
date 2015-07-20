@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    Generic 3 4 5 col section
+\*------------------------------------*/
+.generic_3_4_5_section{
+    @include container;
+    background: $body-bg;
+    padding: 33px 15px;
+    @include bp($breakpoint-lg) {
+        padding: 40px;
+    }
+    .section_3_4_5_col{
+        margin-bottom: 25px;
+    }
+}

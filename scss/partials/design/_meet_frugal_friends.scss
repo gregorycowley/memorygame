@@ -1,0 +1,153 @@
+/*------------------------------------*\
+    Frugal friends hero
+\*------------------------------------*/
+
+#page .friends
+{
+  max-width:63.75em;
+  margin:0 auto;
+}
+
+.go_meet-frugal-friends__wrapper
+{
+  position:relative;
+  width:100%;
+  &:before
+  {
+    content:"";
+    display:block;
+    padding-top:56.25%;
+    @include bp($breakpoint-xs)
+    {
+      padding-top:59%;
+    }
+  }
+}
+
+    
+.frugal-friends__name
+{
+  font-size: $font--epsilon;
+  position:relative;
+  margin:0 auto;
+  max-width: 60%;
+  top:15%;
+  line-height: 1.2em;
+  @include transition-property(opacity);
+  @include transition-duration(0);
+  @include transition-delay(150ms);
+  opacity:1;
+  filter:alpha(opacity=100);
+  .active &
+  {
+    @include transition-delay(0);
+    opacity:0;
+    filter:alpha(opacity=0);
+  }
+    
+  @include bp($breakpoint-xs)
+  {
+    top:10%;
+  }
+}
+
+.go_meet-frugal-friends-tabs{
+    background-image: url("../../assets/img/swirl.png");
+    background-position:center;
+    background-size:cover;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
+    @include container;
+
+    text-align: center;
+    background-color: $brand-info;
+    overflow: hidden;
+
+    .frugal-friends-hero-friend{
+        display: block;
+        overflow: hidden;
+        filter:alpha(opacity=65);
+        opacity:.65;
+        @include transition-property(all);
+        @include transition-duration(150ms);
+        @include transition-timing-function(ease-in);
+        color:transparent;
+        font-size:0;
+    }
+
+    .frugal-friends__header{
+        font-family: $serif-family;
+        position: absolute;
+
+        @include bp($breakpoint-xs){
+          font-size: $font--kilo;
+          top: 15px;
+          text-align: center;
+          width: 100%;
+        }
+        
+        @include bp($breakpoint-md){
+          font-size: $font--giga;
+          top: 45px;
+          left: 30px;
+        }
+    }
+
+    .frugal-friends__item{
+        display: block;
+        position: relative;
+        float:left;
+        height:100%;
+        margin-top:10%;
+        @include transition-property(margin-top);
+        @include transition-duration(150ms);
+        @include transition-timing-function(ease-in);
+
+        &.friend-1
+        {
+          margin-left: -1%;
+          width: 32%;
+        }
+        &.friend-2
+        {
+          margin-left: -7%;
+          width: 27%;
+        }
+        &.friend-3
+        {
+          margin-left: -9%;
+          width: 40.75%;
+        }
+        &.friend-4
+        {
+          margin-left: -10%;
+          margin-right: -6%;
+          width: 29.5%;
+        }
+    }
+
+    .active{
+        margin-top:1%;
+        z-index:6;
+        .frugal-friends-hero-friend{
+            filter:alpha(opacity=100);
+            opacity: 1;
+            img{
+                @include transform( translateY(0) );
+            }
+        }
+    }
+}
+.go_meet-frugal-friends-tab-content{
+    @include container;
+    background: $body-bg;
+    padding: 50px 15px;
+    
+    @include bp($breakpoint-lg) {
+        padding: 50px 40px;
+    }
+}

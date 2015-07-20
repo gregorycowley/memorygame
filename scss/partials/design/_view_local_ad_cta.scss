@@ -1,0 +1,178 @@
+/*------------------------------------*\
+    View local ad CTA
+\*------------------------------------*/
+.go_view-local-add{     
+  background-color: $brand-info;
+  color: $brand-danger;
+  padding: 15px 23px;
+  position: relative;
+
+  @include bp($breakpoint-lg){
+    @include container; 
+  }
+
+  .local-ad__copy{
+    h3
+    {
+      font-size: $font--alpha;
+      margin-bottom: 10px;
+    }
+    @include bp($breakpoint-md){
+      text-align: right;
+      margin-top: 10px;
+    }
+  }
+
+  .local-ad__copy--text{
+    font-size: 24px;
+    color: $brand-warning;
+    margin-bottom: 10px;
+    @include bp($breakpoint-md) {
+      font-size: $font--kilo;
+    }
+  }
+
+  .local-ad__cta{
+    @include bp($breakpoint-md){
+      width: 17%;
+    }
+  }
+
+  p{
+    margin-bottom: 0px;
+
+    @include bp($breakpoint-lg){
+      padding-top: 7px; 
+    }
+  }
+
+  .btn-default{
+    width: 100%;
+    text-align:left;
+    z-index: 20;
+
+    @include bp($breakpoint-lg){
+      width: auto;
+    }
+  }
+
+  .ad-img{
+    position: absolute;
+    z-index: 0;
+
+    right: -57px;
+    top: 10px;
+
+    @include bp($breakpoint-md){
+      right: 5%;
+      top: 4px; 
+    }
+
+    @include bp($breakpoint-lg){
+      right: 21%;
+      top: 4px; 
+    }
+
+    img{
+      width: 64%;
+      @include bp($breakpoint-md){
+        width:95%;
+      }
+    }
+  }
+  
+  .no-home-store, .scheduled-circular, .home-store, .override
+  {
+    display:none;
+  }
+
+  &.has-home{
+    .home-store{display: block;}
+  }
+  
+  &.no-home
+  {
+    .home-store
+    {
+      display:none;
+    }
+    .no-home-store
+    {
+      display:block;
+    }
+    .ad-img
+    {
+      right:-7%;
+      @include bp($breakpoint-md)
+      {
+        right:5%;
+      }
+      @include bp($breakpoint-lg)
+      {
+        right:15%;
+      }
+    }
+  }
+  
+  &.future-override
+  {
+    .override
+    {
+      display:block;
+    }
+  }
+
+  &.scheduled-circular-parent{
+    .scheduled-circular
+    {
+      display:block;
+      .local-ad__copy
+      {
+        padding-right:3em;
+        color:$text-color;
+        @include bp($breakpoint-lg)
+        {
+          padding-right:0;
+        }
+      }
+    }
+  }
+
+}
+
+.ad_zip_selector
+{
+  @include bp($breakpoint-md)
+  {
+    margin-right:0;
+    margin-top:1em;
+  }
+  #submit
+  {
+    width:auto;
+    float:left;
+    &:disabled
+    {
+      @extend .btn-gray;
+      opacity: 1 !important;
+      filter: alpha(opacity=100) !important;
+    }
+  }
+  .error-msg
+  {
+    clear:left;
+    float:left;
+    margin-top:1em;
+  }
+}
+#ad_zipcode
+{
+  height: 2.3em;
+  width: 5em;
+  float: left;
+  margin-right: 1em;
+  &.has-error
+  {
+    border-color:$brand-danger;
+  }
+}

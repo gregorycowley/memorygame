@@ -1,0 +1,55 @@
+.go_fixed-nav{
+
+  ul{
+    top:40%;
+    position: fixed;
+    right:-1px;
+    z-index: 99;
+  }
+
+  ul li{
+    position: relative;
+    right:-129px;
+    margin-bottom: 2px;
+
+    &.fixed-nav__item{
+      .fixed-nav__item--sprite-icon{
+        position: absolute;
+        left: 8px;
+        top: 10px;
+        width: 17px;
+        height: 14px;
+        background-position: -1px 0px;
+        background-repeat: no-repeat;
+      }
+
+      .fixed-nav__item--label{
+        padding-left: 18px;
+        display: inline-block;
+        font-size:$font--epsilon;
+      }
+    }
+
+    @include transition-duration(175ms);
+    @include transition-timing-function(ease-in-out);
+
+    &:hover {
+      @include transition-duration(175ms);
+      @include transition-timing-function(ease-in-out);
+      right: 0px;
+    }
+
+    &.active{
+      right: 0px;
+      .btn-fixed-nav{
+        background-color: $brand-primary;
+        color: #fff;
+        // &:hover{background-color: #d14040;}
+      }
+
+      .fixed-nav__item--sprite-icon{
+        background-position: -1px -14px;
+      }
+    }
+  }
+}

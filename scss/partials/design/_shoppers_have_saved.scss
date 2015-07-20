@@ -1,0 +1,200 @@
+/*------------------------------------*\
+    Shoppers have saved CTA
+\*------------------------------------*/
+.go_shoppers-saved{
+    @include container;
+    background-color: $brand-danger;
+    color: #fff;
+    position: relative;
+    padding: 30px 25px;
+
+    ul li{
+      margin-top:20px;
+      &:first-child{margin-top: 0;}
+
+      @include bp($breakpoint-lg){margin:0;} 
+    }
+
+    .btn-white{
+      width: 100%;
+      &:after{margin: 0;}
+      @include bp($breakpoint-md){width: auto;}
+    }
+
+    .shoppers-save__counter{
+        text-align: center;
+        @include bp($breakpoint-lg){margin:  0px 2.024%;}
+    }
+}
+
+.shoppers-saved__copy{
+    border-top: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    padding: 8px 0px;
+    text-align: center;
+    .shoppers-saved__text
+    {
+      font-size: $font--beta;
+      margin-bottom: 0;
+      font-family:$serif-family;
+    }
+
+    @include bp($breakpoint-lg){
+        .shoppers-saved__text
+        {
+          font-size: $font--alpha;
+        }
+    }
+}
+
+// Shoppers have Saves Flapper Styles
+
+.flapper {
+    font-family: Roboto Condensed, sans-serif;
+    font-weight: 300;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+.flapper .digit {
+    position: relative;
+    display: inline-block;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+.flapper .digit div {
+    position: absolute;
+    text-align: center;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+.flapper .digit .top {
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.flapper .digit .bottom {
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+/* SIZE STYLES */
+
+/* XXS 24x30 */
+
+.flapper {
+    font-size: 28px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.flapper .digit {
+    border-radius: 3px;
+    margin: 0 0 0 2px;
+}
+
+.flapper .digit:first-child {
+    margin: 0;
+}
+
+.flapper .digit div {
+    border-radius: 1px;
+}
+
+.flapper .digit,
+.flapper .digit div {
+    height: 30px;
+    font-size: inherit;
+    line-height: inherit;
+    width: 20px;
+    @include bp($breakpoint-md){width: 22px;}
+}
+
+.flapper .digit .top {
+    clip: rect(0px, 24px, 14px, 0px);
+}
+
+.flapper .digit .bottom {
+    clip: rect(15px, 24px, 30px, 0px); 
+}
+
+@include bp($breakpoint-md)
+{
+    .flapper{
+        font-size: 36px;
+        line-height: 39px;
+        height: 44px;
+        float: right;
+    }
+
+    .flapper .digit {
+        border-radius: 4px;
+        margin: 0 0 0 5px;
+    }
+
+    .flapper .digit:first-child {
+        margin: 0;
+    }
+
+    .flapper .digit div {
+        border-radius: 2px;
+    }
+
+    .flapper .digit,
+    .flapper .digit div {
+        height: 40px;
+        width: 1.5rem;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .flapper .digit .top {
+        clip: rect(0px, 30px, 19px, 0px);
+    }
+
+    .flapper .digit .bottom {
+        clip: rect(20px, 30px, 40px, 0px); 
+    }
+}
+
+@include bp($breakpoint-lg)
+{
+
+    .flapper{
+        float: center;
+    }
+
+    .flapper .digit,
+    .flapper .digit div {
+        height: 40px;
+        width: 1.75rem;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .flapper .digit {
+        border-radius: 4px;
+        margin: 0 0 0 2px;
+    }
+}
+
+/* LIGHT */
+
+.flapper.light .digit {
+    border: 1px solid #ddd;
+    background-color: #eee;
+}
+
+.flapper.light .digit div {
+    color: #222;
+    padding: 0px;
+    background-color: #f6f6f6;
+}
+

@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    Contact Us
+\*------------------------------------*/
+.go_contact-us{
+    @include container;
+    padding: 55px 15px;
+    @include breakpoint($breakpoint-lg) {
+        padding: 40px;
+    }
+}

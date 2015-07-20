@@ -1,0 +1,80 @@
+////////////////////////
+//
+// Breakpoints
+//
+////////////////////////
+
+/**
+ * Susy Breakpoint Structure
+ */
+
+/*------------------------------------*\
+    $Box Sizing
+\*------------------------------------*/
+
+@include border-box-sizing;
+
+/*------------------------------------*\
+    $Grid Setup
+\*------------------------------------*/
+
+@if ($disable-responsive == true)
+{
+  .grid-construct {
+    $total-columns: $total-columns-lg;
+    // $column-width: $column-width-lg;
+    $gutter-width: $gutter-width-lg;
+    $grid-padding: $grid-padding-lg;
+    $container-width: 63.750em;
+    $container-style: magic;
+    
+    @include container;
+    // @include susy-grid-background;
+  }
+}
+
+@else if ($disable-responsive == false)
+{
+  //mobile first
+  .grid-construct{
+    $total-columns: $total-columns-sm;
+    // $column-width: $column-width-sm;
+    $gutter-width: $gutter-width-sm;
+    $grid-padding: $grid-padding-sm;
+
+    $container-width: 63.750em;
+    $container-style: magic;
+
+    @include container;
+    // @include susy-grid-background;
+  }
+
+
+  //for medium devices
+  @include breakpoint($breakpoint-md) {
+    $total-columns: $total-columns-md;
+    // $column-width: $column-width-md;
+    $gutter-width: $gutter-width-md;
+    $grid-padding: $grid-padding-md;
+
+    .grid-construct {
+      @include container;
+      // @include susy-grid-background;
+    }
+  }
+
+
+  // for large devices
+  @include breakpoint($breakpoint-lg) {
+
+    .grid-construct {
+      $total-columns: $total-columns-lg;
+      // $column-width: $column-width-lg;
+      $gutter-width: $gutter-width-lg;
+      $grid-padding: $grid-padding-lg;
+
+      @include container;
+      // @include susy-grid-background;
+    }
+  }
+}

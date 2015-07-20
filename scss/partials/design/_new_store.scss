@@ -1,0 +1,14 @@
+.go_new-store{
+  @include container;
+  padding: 33px 15px;
+
+  .new-store--image{
+    margin-bottom: 45px;
+  }
+  
+  .new-store--content{
+    img{
+      padding: 0 10px 10px 40px;
+    }
+  }
+}

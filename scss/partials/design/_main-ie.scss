@@ -1,0 +1,154 @@
+/**
+ *
+ * Main design styles
+ * For Internet Explorer
+ *
+ */
+ 
+#page
+{
+  min-width:1024px;
+}
+ 
+.go_contact-us,
+.go_fixed-nav,
+.go_cta-two-up,
+.go_footer-copyright,
+.go_cta-two-up,
+.go_meet-frugal-friends-tabs,
+.go_hero-jumbotron,
+.header-nav,
+.go_new-store,
+.go_sign-up-for-email-alerts,
+.go_portal-two-up,
+.go_view-local-add,
+.friends
+{
+  min-width:63.75em;
+}
+
+.go_buy-giftcard,
+.grid-construct,
+.go_circular--header,
+.go_circular_products,
+.go_generic-content,
+.go_how-we-do-it,
+.go_real-estate-presence, 
+.go_shoppers-saved,
+.go_news-highlight,
+.go_meet-frugal-friends-tab-content,
+.friends,
+.generic_3_4_5_section,
+.go_sell_us_your_products,
+.go_work-in-a-store,
+.go_store_locator,
+.go_contact-us,
+.go_wysiwyg-table
+{
+  width:63.75em;
+}
+
+.hidden-lg
+{
+  display:none !important;
+}
+.hidden-md
+{
+  display:block !important;
+}
+@include bp($breakpoint-lg)
+{
+  .hidden-md
+  {
+    display:none !important;
+  }
+  .hidden-lg
+  {
+    display:block !important;
+  }
+}
+@include bp($breakpoint-md)
+{
+  .hidden-lg
+  {
+    display:none !important;
+  }
+  .hidden-md
+  {
+    display:block !important;
+  }
+}
+
+.col-4-before-lg:before,
+.col-3-before-lg:before,
+.col-2-before-lg:before,
+.col-1-before-lg:before
+{
+  content:'';
+  background:transparent url('../img/semitransparent.png');
+}
+
+#page .go_meet-frugal-friends-tabs .frugal-friends__item.friend-2
+{
+  bottom:-25px;
+  img
+  {
+    position:static;
+  }
+}
+
+.shoppers-save__counter
+{
+  padding-right:30px;
+  .digit,
+  .digit div
+  {
+    width:28px;
+  }
+}
+
+.btn-fixed-nav
+{
+  display:block;
+}
+
+//circular styles
+//================
+.go_circular_products{
+  .go_circular-product{
+    margin-right: 10px;
+    height:530px;
+
+    .hover-item{
+      background-image: url("../img/backgrounds/circular-hover-color.png");
+      background-repeat: repeat;
+
+      &.is-selected{background-image: url("../img/backgrounds/circular-active-color.png");}
+    }
+  }
+}
+
+.shopping-list__items{
+  .shopping-list-dropdown-item{
+    margin-right: 10px;
+  }
+}
+
+.img-bleed{
+  margin-left: 405px;
+}
+
+.timeline__image-cover
+{
+  display:none;
+}
+
+.timeline__image-wrapper img
+{
+  @include opacity(1);
+  padding:5px 10px;
+}
+
+.styled-select {
+    background: none !important;
+ }

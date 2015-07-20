@@ -1,0 +1,236 @@
+/*------------------------------------*\
+    Hero Ad Available
+\*------------------------------------*/
+.go_hero-ad-avail{
+    @include box-sizing(border-box);
+    @include container;
+    background-color: $body-bg;
+    background-image: url(../../assets/img/hero/go_homepage_ad_01.png);
+    background-repeat: no-repeat;
+    background-position: 0px 260px;
+    padding: 15px 15px 250px 15px;
+    @include bp($breakpoint-md){
+        padding: 150px 15px;
+        background-position: -364px 0px;
+    }
+    @include bp($breakpoint-lg){
+        padding: 40px;
+        height: 600px;
+        background-position: -110px 0px;
+    }
+}
+
+.hero-carousel-headline{
+    @include transform(translateY(0));
+    color: #fff;
+    display: block;
+    line-height: 3rem;
+    text-align: left;
+    position: absolute;
+    width: 40%;
+    top: 30px;
+    left: auto;
+    right: 30px;
+    @include bp($breakpoint-md){
+        @include transform(translateY(-100%));
+        top: 50%;
+        left: 60%;
+        right: auto;
+        width: 20%;
+    }
+}
+
+.go_hero-ad-avail__form{
+    @include bp($breakpoint-lg){
+        position: relative;
+        top:50%;
+        @include transform(translateY(-50%));
+    }
+}
+
+.go_hero-ad-avail__puppet{
+    position: absolute;
+    bottom: 0px;
+    display: block;
+}
+
+.go_hero-ad-avail__puppet--left{
+    right: auto;
+    @include bp($breakpoint-md){
+        right: 50%;
+    }
+}
+.go_hero-ad-avail__puppet--right{
+    right: 20px;
+}
+
+/*------------------------------------*\
+    Hero Jumbotron
+\*------------------------------------*/
+.go_hero-jumbotron{
+    @include box-sizing(border-box);
+    @include container;
+    overflow: hidden;
+
+//carousel starts
+    .carousel{
+        position: relative;
+
+        .carousel-inner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+
+            >.item{
+                position: relative;
+                display: none;
+                z-index: -100;
+            }
+
+            >.active{
+                display: block;
+                left: 0;
+            }
+        }
+
+        >.carousel-indicators{
+            position: absolute;
+            left: 40px;
+            top: 20px;
+            padding: 0;
+
+            .active{
+                opacity:1;
+            }
+
+            >li{
+                width: 60px;
+                height: 33px;
+                margin-bottom: 8px;
+                opacity:.5;
+
+                .thumbnail{
+                    border:1px solid #fff;
+                    width: 60px;
+                    height: 33px;
+                }
+            }
+        }       
+    }
+//carousel finish
+    .hero-img{ 
+        // margin-top: -120px;
+        @include bp($breakpoint-md){
+            // margin-top: -100px;
+        }
+
+        text-align: center; /* ensures the image is always in the h-middle */
+        overflow: hidden; /* hide the cropped portion */
+        img {
+            width: auto;
+            max-width: none;
+            position: relative; /* allows repositioning */
+            left: 100%; //move the whole width of the image to the right
+            margin-left: -200%; /* magic! */
+            @include bp($breakpoint-lg){
+                // margin-top: 85px;
+            }
+        }
+    }
+}
+
+/*ie fix*/
+.hero-fix .hero-img img{
+    left: 0;
+    margin-left: 0;
+}
+
+.hero--brand-overlay{
+    background-color: #ede6c8;
+    padding: 0 40px;
+    position: relative;
+
+    height: 70px;
+    @include bp($breakpoint-lg){
+        height: 100px;
+    }
+
+    .hero--brand-overlay__image{
+        position: absolute;
+
+        &.pos-left{left: 67px;bottom: 16px;}
+
+
+        @include bp($breakpoint-md){
+            &.pos-left{max-width: none; left:-60px; bottom: 0;}
+            &.pos-right{max-width: none; right:-70px; bottom: 0;}
+            &.pos-center
+            {
+              left:50%;
+              margin-left:-255px;
+            }
+        }
+        @include bp($breakpoint-lg){
+            &.pos-left{left:0;}
+            &.pos-right{right:0;}
+            &.pos-center
+            {
+              max-width:initial;
+            }
+        }
+
+        &.wow-img{
+            bottom: 28px;
+            @include bp($breakpoint-md){
+                bottom: 50px;
+            }
+
+            &.wow-img--mobile{
+                left: 50%;
+                @include transform(translateX(-50%));
+            }
+        }
+
+    }
+    .overlay__img-container{
+        height: 100%;
+        position: relative;
+
+        margin-bottom: -70px;
+        @include bp($breakpoint-md){
+          margin-bottom: 0;
+          position:absolute;
+          width:100%;
+          left:0;
+        }
+    }
+}
+
+.carousel__controls{
+    position: absolute;
+    @extend %vertical-align;
+    overflow: auto;
+    width: 100%;
+}
+
+.carousel__controls--button{
+    background-color: transparent;
+    border: 0;
+    display: none;
+    opacity: 0.50;
+    @include single-transition(opacity, 250ms);
+    @include bp($breakpoint-md){
+        display: block;
+    }
+    &:hover{
+        opacity: 0.85;
+    }
+}
+
+.carousel__controls--prev{
+    float:left;
+}
+
+.carousel__controls--next{
+    float: right;
+}

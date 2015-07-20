@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    Footer Two Up CTA
+\*------------------------------------*/
+.go_cta-two-up{
+    @include container;
+    .half-width-gift-card{
+        color: $brand-primary;
+        padding: 33px 15px;
+        @include bp($breakpoint-lg) {
+            padding: 40px 20px 33px 40px;
+            height: 99px;
+        }
+
+        .sixty-p{
+            @include bp($breakpoint-lg){
+                width: 61%;
+                margin-right: 0;
+                height: 99px;
+            }
+        }
+
+        .forty-p{
+            @include bp($breakpoint-lg){
+                width: 39%;
+                @include omega;
+            }
+        }
+
+        .headline--small{
+            margin-bottom: 0;
+            position: relative;
+            top: 5px;
+            letter-spacing: -1px;
+            @include after_icons(white-btn-icon-w_red-pointer, 0);
+            @include bp($breakpoint-md){
+                &:after{display: none;}
+                float: right;
+                top:9px;
+            }
+            @include bp($breakpoint-lg){
+                float: none;
+                position: static;
+            }
+        }
+
+        .btn-default{
+            @include bp($breakpoint-md){
+               float: left;
+            }
+            @include bp($breakpoint-lg){
+               float: right;
+               margin-top: -10px; 
+            }
+        }
+    }
+}

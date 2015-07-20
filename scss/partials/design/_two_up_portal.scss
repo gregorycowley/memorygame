@@ -1,0 +1,138 @@
+/*------------------------------------*\
+    Two Up Portal
+\*------------------------------------*/
+.go_portal-two-up{
+    @include container;
+    .portal__item{
+        position: relative;
+        padding: 35px 30px;
+        z-index: 0;
+
+        @include bp($breakpoint-md){
+            padding: 70px 30px;
+        }
+        @include bp($breakpoint-lg) {
+            color:#fff;
+            padding: 54px 90px;
+            text-align: center;
+            height: 682px;
+        }
+    }
+
+    .portal__item-img{
+        display: block;
+        position: relative;
+        width: 100%;
+
+        @include bp($breakpoint-md){
+        margin: 0 auto; 
+        }
+    }
+
+    .content__wrapper{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        .content__headline h2{
+            margin-bottom: 17px;
+
+            @include bp($breakpoint-lg){
+                margin-bottom: 49px;
+            }
+        }
+
+        .content__image{
+            margin-bottom: 23px;
+
+            &.has-frame img{
+                border:5px solid #fff;
+                @include border-radius(4px);
+            }
+        }
+
+        .content__copy p{
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        &.square-bg{
+            background-color: #ede6c8;
+            padding: 43px 40px;
+            @include border-radius(6px);
+            margin: 85px 0;
+        }
+    }
+
+    .btn-postioner{
+        width: 100%;
+        position: absolute;
+        right: 0px;
+        bottom: 59px;
+        z-index: 2;
+
+        padding: 0px 30px;
+
+        @include bp($breakpoint-md){
+            padding: 0px 90px;
+        }
+    }
+
+    .background-img-cover{
+        @include background-size(cover);
+        -ms-behavior: url('/wp-content/themes/go/backgroundsize.min.htc');
+        background-position:center center;
+    }
+}
+/* ends go_portal-two-up */
+
+.css-gradient
+{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjY1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.90) 0%, rgba(0,0,0,0) 50%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.90)), color-stop(50%,rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.90) 0%,rgba(0,0,0,0) 50%);
+  background: -o-linear-gradient(top,  rgba(0,0,0,0.90) 0%,rgba(0,0,0,0) 50%);
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0.90) 0%,rgba(0,0,0,0) 50%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.90) 0%,rgba(0,0,0,0) 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+
+}
+
+.mobile-top{
+    color:#fff;
+}
+
+.mobile-bottom{
+    background-color: #ede6c8;
+    color: $text-color;
+
+    .content__image{
+        position: relative;
+
+        .has-pointer{
+            position: absolute;
+            bottom:0;
+            left:45%;
+            width: 0; 
+            height: 0; 
+            border-left: 17px solid transparent;
+            border-right: 17px solid transparent;
+            border-bottom: 17px solid #ede6c8;
+        }
+    }
+}
+
+.tablet-top{
+    color: #fff;
+}
+
+.tablet-bottom{
+    color: $text-color;
+    background-position:center center;
+}

@@ -1,0 +1,39 @@
+@import 'breakpoint';
+@import 'partials/global/variables';
+@import 'partials/global/mixins/misc';
+@import 'partials/global/mixins/sprite-1x';
+@import 'partials/global/mixins/sprite-2x';
+
+@import 'partials/styleguide/fonts';
+@import 'partials/styleguide/buttons';
+
+p{margin: 3px 0;}
+ul li{list-style: initial; list-style-position: outside;}
+ul{margin-left: 19px;}
+ol li{list-style: decimal; list-style-position: outside;}
+h1,h2,h3{margin-bottom: 16px;}
+h1{@extend %headline-wisywig--large;}
+h2{@extend %headline-wisywig--medium;}
+h3{@extend %headline-wisywig--small;}
+
+.btn-default-wisywig{
+  @extend .btn-default;
+  a{
+    color: #fff;
+    &:hover{text-decoration: none;}
+  }
+  &:after{margin: 0 0 0 6px;}
+}
+
+a{
+  text-decoration: none;
+  color: #b71234;
+
+  &:hover{
+      text-decoration: underline;
+  }
+}
+
+.ie{
+  ul li{list-style-type: disc;}
+} //ie fix for bullets

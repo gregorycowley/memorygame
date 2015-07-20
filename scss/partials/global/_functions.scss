@@ -1,0 +1,42 @@
+////////////////////////
+// Functions Partials
+//
+// All of your functions should go in this file.
+////////////////////////
+
+/*------------------------------------*\
+    $STRIP UNITS (Example: ems, px, %)
+\*------------------------------------*/
+
+@function stripUnits($unitValue) {
+  @return $unitValue / ($unitValue * 0 + 1);
+}
+
+
+/*------------------------------------*\
+    $EMS TO PIXELS (Example: 1 --> 16px)
+\*------------------------------------*/
+
+@function emsToPx($ems) {
+  @return #{ (($ems) * 16) + 'px'};
+}
+
+
+/*------------------------------------*\
+    $Strip Units, Convert Ems to PX
+\*------------------------------------*/
+
+@function stripAndEmsToPx($in){
+  $stripped: $in / ($in * 0 + 1); //strip unit
+  @return (($stripped) * 16) * 1px; //convert em value to px
+}
+
+
+/*------------------------------------*\
+    $Strip Units, Convert Px to Ems
+\*------------------------------------*/
+
+@function stripAndPxToEms($in){
+  $stripped: $in / ($in * 0 + 1); //strip unit
+  @return (($stripped) / 16) * 1em; //convert px value to em
+}
