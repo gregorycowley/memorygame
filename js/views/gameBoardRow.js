@@ -10,7 +10,7 @@ define([
             
             el: '.game-tiles',
             
-            templateGameBoardRow: _.template( gameBoardRowTemplate ),
+//            templateGameBoardRow: _.template( gameBoardRowTemplate ),
             
             columns: 5,
             
@@ -18,7 +18,7 @@ define([
 
             },
 
-            initialize: function ( columns ) {
+            initialize: function ( options ) {
                 
             },
 

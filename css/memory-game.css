@@ -51,14 +51,34 @@ body {
   font-size: 21px;
 }
 
+.hidden {
+    display: none;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 /* Memory Game Visual Elements */
-.game-tiles{
+.message-container{
+    height: 100px;
+}
+.game-board{
     margin-top: 40px;
 }
     .game-tile{
 /*        border: thin solid grey; */
+        cursor: pointer;
         min-height: 100px;
         min-width: 100px;
+        margin-right: 5px;
         display: inline-block;
         background-color: lightcoral;
     }

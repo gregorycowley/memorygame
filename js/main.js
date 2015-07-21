@@ -33,7 +33,7 @@ requirejs.config({
             deps: ['jquery']
         },
         page: {
-            deps: [ ],
+            deps: ['jquery'],
             exports: 'page'
         }
 
@@ -60,4 +60,5 @@ require(['jquery', 'underscore', 'backbone', 'bootstrap', 'page'], function ($, 
     var page = new PageView({
         el: $('body')
     });
+    //page.render();
 });

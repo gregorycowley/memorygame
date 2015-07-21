@@ -2,45 +2,74 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/gameboardrow',
-    'views/gameboardtile',
-    'text!templates/game-board.html'
+    'models/game',
+    'views/gameboardtile'
 ],
-    function ($, _, Backbone, GameBoardRowView, GameBoardTileView, GameBoardTemplate) {
+    function ($, _, Backbone, GameModel, GameBoardTileView) {
 
         var GameBoardView = Backbone.View.extend({
 
             el: '.game-board',
+
             rows: 5,
+
             columns: 5,
-            
-            gameBoardTemplate: null,
+
+            parent: null,
+
+            rowTemplate: '<div class="game-row"></div>',
+
+            gridArray: [],
+
+            gameModel: 'null',
 
             events: {
 
             },
 
-            initialize: function () {
-//                alert('init game-board');
+            initialize: function (options) {
+                this.gameModel = new GameModel();
+                this.initGrid(this.rows, this.columns);
+                this.gameModel.set({
+                    'tiles': this.gridArray
+                })
+                
+                this.gameModel.on('change', this.render, this);
             },
 
             render: function () {
-                var that = this;
-                var gameRow = null;
-                $(this.el).append( _.template( GameBoardTemplate ) );
-                _(this.rows).times(function(n){ 
-                    gameRow = new GameBoardRowView({columns: that.columns});
-                    gameRow.setElement(this.$('.game-tiles')).render(); 
-                    _(that.columns).times(function(n){ 
-                        gameTile = new GameBoardTileView({}); 
-                        gameTile.setElement( gameRow.find('.game-tile-row')).render();  
-                    });
-
-                });
+                console.log("Rendering");
                 
-                Backbone.history.start();
+            },
+
+            initGrid: function (rows, columns) {
+                var that = this;
+                var rowArray = null;
+                var tile = null;
+                var tileRow = null;
+                var count = 0;
+
+                // Build Array
+                _(rows).times(function(n){ 
+                    rowArray = [];
+                    //tileRow = that.$el.append( _.template('<div class="row game-row-' + n + '"></div>') );
+                    _(columns).times(function(i){
+                        tile = new GameBoardTileView({
+                            model: that.gameModel, 
+                            position: count, 
+                            name: 'tile' + count++, 
+                            el: '.game-board' 
+                        });
+                        that.gridArray.push(tile);
+                    });
+                });
             },
             
+            begin: function (){
+                this.gameModel.begin();
+            }
+
+
         });
 
         return GameBoardView;
