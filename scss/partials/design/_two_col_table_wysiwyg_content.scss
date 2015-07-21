@@ -1,8 +1,0 @@
-.go_wysiwyg-table{
-  @include container;
-  padding: 33px 15px;
-  background-color: $body-bg;
-  @include bp($breakpoint-lg) {
-      padding: 40px;
-  }
-}

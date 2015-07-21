@@ -21,24 +21,23 @@ define([
 
             gridArray: [],
 
-            gameModel: 'null',
+            model: 'null',
 
             events: {
 
             },
 
             initialize: function (options) {
-                this.gameModel = new GameModel();
+                
                 this.initGrid(this.rows, this.columns);
-                this.gameModel.set({
+                this.model.set({
                     'tiles': this.gridArray
                 })
                 
-                this.gameModel.on('change', this.render, this);
+                this.model.on('change', this.render, this);
             },
 
             render: function () {
-                console.log("Rendering");
                 
             },
 
@@ -55,7 +54,7 @@ define([
                     //tileRow = that.$el.append( _.template('<div class="row game-row-' + n + '"></div>') );
                     _(columns).times(function(i){
                         tile = new GameBoardTileView({
-                            model: that.gameModel, 
+                            model: that.model, 
                             position: count, 
                             name: 'tile' + count++, 
                             el: '.game-board' 
@@ -66,7 +65,7 @@ define([
             },
             
             begin: function (){
-                this.gameModel.begin();
+                this.model.begin();
             }
 
 

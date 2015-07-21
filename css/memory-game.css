@@ -68,10 +68,21 @@ body {
 
 /* Memory Game Visual Elements */
 .message-container{
+    position: relative;
     height: 100px;
+    width: 520px;
+    margin: 0 auto;
+    
 }
+    .message-area{
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        vertical-align: bottom;
+        
+    }
 .game-board{
-    margin-top: 40px;
+    margin-top: 10px;
 }
     .game-tile{
 /*        border: thin solid grey; */
